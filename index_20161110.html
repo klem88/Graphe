@@ -74,7 +74,8 @@ h4 {
 <script>
 //src="d3/d3.js">
 //src="https://d3js.org/d3.v4.min.js">
-
+var dataset = "graphe7.json";
+var datasetpopularity = "books_popularity_1.json";
 //Filtered : graphe4.json
 // All : graphe7.json
 
@@ -278,8 +279,7 @@ var shape = d3
 		.line()
 		.curve(d3.curveCardinalClosed.tension(0));
 		//.curve(d3.curveCatmullRomClosed.alpha(0));
-var dataset = "?https://github.com/klem88/Graphe/blob/Version-1/graphe7.json";
-var datasetpopularity = "?https://github.com/klem88/Graphe/blob/Version-1/books_popularity_1.json";
+
 // FUNCTION THAT UPDATES THE DATASET //
 
 function update(viznodes, vizlinks, data) {	
@@ -803,7 +803,7 @@ d3.json(dataset, function(error, data) {
 // READ THE POPULARITY DATASET
 d3.json(datasetpopularity, function(error, data) {
 	if (error) return console.warn(error);
-	bookspopularity = JSON.parse(JSON.stringify(data));
+	bookspopularity = data;//JSON.parse(JSON.stringify(data));
 });
 
 </script>
